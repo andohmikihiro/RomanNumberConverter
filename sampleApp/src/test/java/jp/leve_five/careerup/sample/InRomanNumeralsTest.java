@@ -56,7 +56,7 @@ public class InRomanNumeralsTest {
         assertEquals(500, answer);
     }
     @Test
-    public void testMを2つ入力すると200が返る() {
+    public void testMを2つ入力すると2000が返る() {
         InRomanNumerals inRomanNumerals = new InRomanNumerals();
         int answer = inRomanNumerals.inOut("Mm");
         assertEquals(2000, answer);
@@ -69,13 +69,13 @@ public class InRomanNumeralsTest {
     }
     
     @Test
-    public void testcを1つ入力すると50が返る() {
+    public void testcを1つ入力すると100が返る() {
         InRomanNumerals inRomanNumerals = new InRomanNumerals();
         int answer = inRomanNumerals.inOut("c");
         assertEquals(100, answer);
     }
     @Test
-    public void testmmmcmlivを入力するとが返る() {
+    public void testmmmcmlivを入力する3954とが返る() {
         InRomanNumerals inRomanNumerals = new InRomanNumerals();
         int answer = inRomanNumerals.inOut("mmmcmliv");
         assertEquals(3954, answer);
@@ -86,7 +86,7 @@ public class InRomanNumeralsTest {
         inRomanNumerals.inOut("iiii");
     }
     @Test
-    public void testvmを4つ入力すると正しいローマ数字の記法ではありませんと表示される() {
+    public void testvmを入力すると正しいローマ数字の記法ではありませんと表示される() {
         InRomanNumerals inRomanNumerals = new InRomanNumerals();
         inRomanNumerals.inOut("vm");
     }
