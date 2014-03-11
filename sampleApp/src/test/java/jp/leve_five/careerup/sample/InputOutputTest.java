@@ -18,28 +18,28 @@ public class InputOutputTest {
     @Test
     public void test4‚ð“ü—Í‚·‚é‚ÆIV‚ª•Ô‚Á‚Ä‚­‚é() {
         InArabicNumber inArabicNumber = new InArabicNumber();
-        String roman = inArabicNumber.inOut(4);
+        String roman = inArabicNumber.inputOutput(4);
         assertEquals("IV", roman);
     }
 
     @Test
     public void test4000‚ð“ü—Í‚·‚é‚Æ‹ó‚ª•Ô‚Á‚Ä‚­‚é() {
         InArabicNumber inArabicNumber = new InArabicNumber();
-        String roman = inArabicNumber.inOut(4000);
+        String roman = inArabicNumber.inputOutput(4000);
         assertEquals("", roman);
     }
     
     @Test
     public void test900‚ð“ü—Í‚·‚é‚ÆCM‚ª•Ô‚Á‚Ä‚­‚é() {
         InArabicNumber inArabicNumber = new InArabicNumber();
-        String roman = inArabicNumber.inOut(900);
+        String roman = inArabicNumber.inputOutput(900);
         assertEquals("CM", roman);
     }
 
     @Test
     public void test3999‚ð“ü—Í‚·‚é‚ÆMMMCMXCIX‚ª•Ô‚Á‚Ä‚­‚é() {
         InArabicNumber inArabicNumber = new InArabicNumber();
-        String roman = inArabicNumber.inOut(3999);
+        String roman = inArabicNumber.inputOutput(3999);
         assertEquals("MMMCMXCIX", roman);
     }
 

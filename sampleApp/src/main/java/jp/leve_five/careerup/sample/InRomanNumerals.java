@@ -4,7 +4,7 @@ public class InRomanNumerals {
     private char element;
     private char previousElement = ' ';
 
-    public int inOut(String roman) {
+    public int inputOutput(String roman) {
         int Arabic = 0;
 
         Arabic = changeArabicToRoman(Arabic, roman);
@@ -15,7 +15,7 @@ public class InRomanNumerals {
         return Arabic;
     }
 
-    int changeArabicToRoman(int Arabic, String roman) {
+    private int changeArabicToRoman(int Arabic, String roman) {
         char[] arrayRomanLowerCase = makeArrayOfRoman(roman);
         for (int i = arrayRomanLowerCase.length - 1; i >= 0; i--) {
             element = arrayRomanLowerCase[i];
@@ -25,13 +25,13 @@ public class InRomanNumerals {
         return Arabic;
     }
 
-    char[] makeArrayOfRoman(String roman) {
+    private char[] makeArrayOfRoman(String roman) {
         String romanToLowerCase = roman.toLowerCase();
         char[] arrayRomanLowerCase = romanToLowerCase.toCharArray();
         return arrayRomanLowerCase;
     }
 
-    int checkCharAndCalc(int arabic, char element, char previousElement) {
+    private int checkCharAndCalc(int arabic, char element, char previousElement) {
         switch (element) {
         case 'i':
             arabic = iCheck(arabic, previousElement);
@@ -60,7 +60,7 @@ public class InRomanNumerals {
         return arabic;
     }
 
-    int iCheck(int arabic, char previousElement) {
+    private int iCheck(int arabic, char previousElement) {
         if (arabic <= 2) {
             arabic += 1;
         } else if ('v' == previousElement || 'x' == previousElement) {
@@ -71,7 +71,7 @@ public class InRomanNumerals {
         return arabic;
     }
 
-    int vCheck(int arabic) {
+    private int vCheck(int arabic) {
         if (arabic <= 3) {
             arabic += 5;
         } else {
@@ -80,7 +80,7 @@ public class InRomanNumerals {
         return arabic;
     }
 
-    int xCheck(int arabic, char previousElement) {
+    private int xCheck(int arabic, char previousElement) {
         if (arabic <= 29) {
             arabic += 10;
         } else if ('l' == previousElement || 'c' == previousElement) {
@@ -91,7 +91,7 @@ public class InRomanNumerals {
         return arabic;
     }
 
-    int lCheck(int arabic) {
+    private int lCheck(int arabic) {
         if (arabic <= 39) {
             arabic += 50;
         } else {
@@ -100,7 +100,7 @@ public class InRomanNumerals {
         return arabic;
     }
 
-    int cCheck(int arabic, char previousElement) {
+    private int cCheck(int arabic, char previousElement) {
         if (arabic <= 299) {
             arabic += 100;
         } else if ('d' == previousElement || 'm' == previousElement) {
@@ -111,7 +111,7 @@ public class InRomanNumerals {
         return arabic;
     }
 
-    int dCheck(int arabic) {
+    private int dCheck(int arabic) {
         if (arabic <= 399) {
             arabic += 500;
         } else {
@@ -120,7 +120,7 @@ public class InRomanNumerals {
         return arabic;
     }
 
-    int mCheck(int arabic) {
+    private int mCheck(int arabic) {
         if (arabic <= 2999) {
             arabic += 1000;
         } else {

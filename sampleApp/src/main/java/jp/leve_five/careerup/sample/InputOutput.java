@@ -6,13 +6,13 @@ public class InputOutput {
 
     String convert(int arabic){
         InArabicNumber inArabicNumber = new InArabicNumber();
-        String roman = inArabicNumber.inOut(arabic);
+        String roman = inArabicNumber.inputOutput(arabic);
         return roman;
     }
     
     int convert(String roman){
         InRomanNumerals inRomanNumerals = new InRomanNumerals();
-        int arabic = inRomanNumerals.inOut(roman);
+        int arabic = inRomanNumerals.inputOutput(roman);
         return arabic;
     }
 }

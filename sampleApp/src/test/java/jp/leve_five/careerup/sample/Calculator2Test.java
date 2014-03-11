@@ -31,15 +31,15 @@ public class Calculator2Test {
         string.fomula("(1+2)");
         string.check();
     }
-    @Test
-    public void test‚P‚Qƒvƒ‰ƒX‚R‚P‚ğ“ü—Í‚·‚é‚Æ‚P‚Qƒvƒ‰ƒX‚R‚P‚Ì‡‚Å•Ô‚Á‚Ä‚­‚é(){
-        string.fomula("12+31");
-        char[] fomula2 = string.figureCheck();
-        assertEquals(12, fomula2[0]);
-        assertEquals('+', fomula2[1]);
-        assertEquals(31, fomula2[2]);
-    }
-
+//    @Test
+//    public void test‚P‚Qƒvƒ‰ƒX‚R‚P‚ğ“ü—Í‚·‚é‚Æ‚P‚Qƒvƒ‰ƒX‚R‚P‚Ì‡‚Å•Ô‚Á‚Ä‚­‚é(){
+//        string.fomula("12+31");
+//        char[] fomula2 = string.figureCheck();
+//        assertEquals(12, fomula2[0]);
+//        assertEquals('+', fomula2[1]);
+//        assertEquals(31, fomula2[2]);
+//    }
+//
 //    @Test
 //    public void test‚Pƒvƒ‰ƒX‚Q‚ğ“ü—Í‚·‚é‚Æ‚P‚Qƒvƒ‰ƒX‚Ì‡‚Å•Ô‚Á‚Ä‚­‚é(){
 //        char[] fomula = string.fomula("1+2");

@@ -3,7 +3,7 @@ package jp.leve_five.careerup.sample;
 public class InArabicNumber {
     private StringBuilder romanStringBuilder = new StringBuilder("");
 
-    public String inOut(int arabic) {
+    public String inputOutput(int arabic) {
         String roman;
         if (arabic < 1 || arabic > 3999) {
             roman = "";
@@ -15,14 +15,14 @@ public class InArabicNumber {
         return roman;
     }
 
-    String changeRomanToArabic(int arabic) {
+    private String changeRomanToArabic(int arabic) {
         addArabicToRomanStringBuilder(makeArrayOfInt(arabic));
         String roman = romanStringBuilder.toString();
 
         return roman;
     }
 
-    int[] makeArrayOfInt(int arabic) {
+    private int[] makeArrayOfInt(int arabic) {
         int element = 0;
         int index = 1;
 
@@ -42,13 +42,13 @@ public class InArabicNumber {
         return arrayArabic;
     }
 
-    void addArabicToRomanStringBuilder(int[] arrayArabic) {
+    private void addArabicToRomanStringBuilder(int[] arrayArabic) {
         for (int index = arrayArabic.length - 1; 0 <= index; index--) {
             checkPosition(arrayArabic[index], index);
         }
     }
 
-    void checkPosition(int element, int index) {
+    private void checkPosition(int element, int index) {
         switch (index) {
         case 0:
             if (element != 0) {
@@ -72,7 +72,7 @@ public class InArabicNumber {
 
     }
 
-    void fourDigit(int element) {
+    private void fourDigit(int element) {
         switch (element) {
         case 3:
             romanStringBuilder.append("M");
@@ -84,7 +84,7 @@ public class InArabicNumber {
         }
     }
 
-    void threeDigit(int element) {
+    private void threeDigit(int element) {
         switch (element) {
         case 3:
             romanStringBuilder.append("C");
@@ -114,7 +114,7 @@ public class InArabicNumber {
         }
     }
 
-    void doubleDigit(int element) {
+    private void doubleDigit(int element) {
         switch (element) {
         case 3:
             romanStringBuilder.append("X");
@@ -144,7 +144,7 @@ public class InArabicNumber {
         }
     }
 
-    void oneDigit(int element) {
+    private void oneDigit(int element) {
         switch (element) {
         case 3:
             romanStringBuilder.append("I");
