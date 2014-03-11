@@ -24,153 +24,139 @@ public class InArabicNumber {
 
     private int[] makeArrayOfInt(int arabic) {
         int element = 0;
-        int index = 1;
+        int maxPosition = 1;
 
         for (int x = 10; arabic >= x; x *= 10) {
-            index++;
+            maxPosition++;
         }
 
-        int[] arrayArabic = new int[index];
+        int[] arrayArabic = new int[maxPosition];
 
-        for (index = 0; arrayArabic.length > index; index++) {
-            int divisors = 10;
-            element = arabic % divisors;
+        for (maxPosition = 0; arrayArabic.length > maxPosition; maxPosition++) {
+            element = arabic % 10;
             arabic -= element;
             arabic /= 10;
-            arrayArabic[index] = element;
+            arrayArabic[maxPosition] = element;
         }
         return arrayArabic;
     }
 
     private void addArabicToRomanStringBuilder(int[] arrayArabic) {
         for (int index = arrayArabic.length - 1; 0 <= index; index--) {
-            checkPosition(arrayArabic[index], index);
+            stringBuilderAppendString(arrayArabic[index], index);
         }
     }
 
-    private void checkPosition(int element, int index) {
+    private void stringBuilderAppendString(int element, int index) {
         switch (index) {
         case 0:
             if (element != 0) {
-                oneDigit(element);
+                romanStringBuilder.append(oneDigit(element));
             }
             break;
         case 1:
             if (element != 0) {
-                doubleDigit(element);
+                romanStringBuilder.append(doubleDigit(element));
             }
             break;
         case 2:
             if (element != 0) {
-                threeDigit(element);
+                romanStringBuilder.append(threeDigit(element));
             }
             break;
         case 3:
-            fourDigit(element);
+            romanStringBuilder.append(fourDigit(element));
             break;
         }
 
     }
 
-    private void fourDigit(int element) {
+    private String fourDigit(int element) {
         switch (element) {
-        case 3:
-            romanStringBuilder.append("M");
-        case 2:
-            romanStringBuilder.append("M");
         case 1:
-            romanStringBuilder.append("M");
-            break;
+            return "M";
+        case 2:
+            return "MM";
+        case 3:
+            return "MMM";
+        default:
+            return "";
         }
+
     }
 
-    private void threeDigit(int element) {
+    private String threeDigit(int element) {
         switch (element) {
-        case 3:
-            romanStringBuilder.append("C");
-        case 2:
-            romanStringBuilder.append("C");
         case 1:
-            romanStringBuilder.append("C");
-            break;
+            return "C";
+        case 2:
+            return "CC";
+        case 3:
+            return "CCC";
         case 4:
-            romanStringBuilder.append("CD");
-            break;
+            return "CD";
         case 5:
-            romanStringBuilder.append("D");
-            break;
+            return "D";
         case 6:
-            romanStringBuilder.append("DC");
-            break;
+            return "DC";
         case 7:
-            romanStringBuilder.append("DCC");
-            break;
+            return "DCC";
         case 8:
-            romanStringBuilder.append("DCC");
-            break;
+            return "DCCC";
         case 9:
-            romanStringBuilder.append("CM");
-            break;
+            return "CM";
+        default:
+            return "";
         }
     }
 
-    private void doubleDigit(int element) {
+    private String doubleDigit(int element) {
         switch (element) {
-        case 3:
-            romanStringBuilder.append("X");
-        case 2:
-            romanStringBuilder.append("X");
         case 1:
-            romanStringBuilder.append("X");
-            break;
+            return "X";
+        case 2:
+            return "XX";
+        case 3:
+            return "XXX";
         case 4:
-            romanStringBuilder.append("XL");
-            break;
+            return "XL";
         case 5:
-            romanStringBuilder.append("L");
-            break;
+            return "L";
         case 6:
-            romanStringBuilder.append("LX");
-            break;
+            return "LX";
         case 7:
-            romanStringBuilder.append("LXX");
-            break;
+            return "LXX";
         case 8:
-            romanStringBuilder.append("LXXX");
-            break;
+            return "LXXX";
         case 9:
-            romanStringBuilder.append("XC");
-            break;
+            return "XC";
+        default:
+            return "";
         }
     }
 
-    private void oneDigit(int element) {
+    private String oneDigit(int element) {
         switch (element) {
-        case 3:
-            romanStringBuilder.append("I");
-        case 2:
-            romanStringBuilder.append("I");
         case 1:
-            romanStringBuilder.append("I");
-            break;
+            return "I";
+        case 2:
+            return "II";
+        case 3:
+            return "III";
         case 4:
-            romanStringBuilder.append("IV");
-            break;
+            return "IV";
         case 5:
-            romanStringBuilder.append("V");
-            break;
+            return "V";
         case 6:
-            romanStringBuilder.append("VI");
-            break;
+            return "VI";
         case 7:
-            romanStringBuilder.append("VII");
-            break;
+            return "VII";
         case 8:
-            romanStringBuilder.append("VIII");
-            break;
+            return "VIII";
         case 9:
-            romanStringBuilder.append("IX");
-            break;
+            return "IX";
+        default:
+            return "";
         }
     }
 
