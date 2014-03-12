@@ -1,25 +1,19 @@
 package jp.leve_five.careerup.sample;
 
 public class InArabicNumber {
-    private StringBuilder romanStringBuilder = new StringBuilder("");
 
     public String inputOutput(int arabic) {
-        String roman;
         if (arabic < 1 || arabic > 3999) {
-            roman = "";
-            return roman;
+            return "";
         }
-
-        roman = changeRomanToArabic(arabic);
-
-        return roman;
+        return    changeRomanToArabic(arabic);
     }
 
     private String changeRomanToArabic(int arabic) {
-        addArabicToRomanStringBuilder(makeArrayOfInt(arabic));
-        String roman = romanStringBuilder.toString();
-
-        return roman;
+        StringBuilder romanStringBuilder = new StringBuilder("");
+        
+        addArabicToRomanStringBuilder(romanStringBuilder, makeArrayOfInt(arabic));
+        return romanStringBuilder.toString();
     }
 
     private int[] makeArrayOfInt(int arabic) {
@@ -41,13 +35,13 @@ public class InArabicNumber {
         return arrayArabic;
     }
 
-    private void addArabicToRomanStringBuilder(int[] arrayArabic) {
+    private void addArabicToRomanStringBuilder(StringBuilder romanStringBuilder, int[] arrayArabic) {
         for (int index = arrayArabic.length - 1; 0 <= index; index--) {
-            stringBuilderAppendString(arrayArabic[index], index);
+            stringBuilderAppendString(romanStringBuilder, arrayArabic[index], index);
         }
     }
 
-    private void stringBuilderAppendString(int element, int index) {
+    private void stringBuilderAppendString(StringBuilder romanStringBuilder, int element, int index) {
         switch (index) {
         case 0:
             if (element != 0) {
