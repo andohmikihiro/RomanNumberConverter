@@ -1,25 +1,12 @@
 package jp.leve_five.careerup.sample;
 
 public class InArabicNumber {
-    private StringBuilder romanStringBuilder = new StringBuilder("");
 
     public String inputOutput(int arabic) {
-        String roman;
         if (arabic < 1 || arabic > 3999) {
-            roman = "";
-            return roman;
+            return "";
         }
-
-        roman = changeRomanToArabic(arabic);
-
-        return roman;
-    }
-
-    private String changeRomanToArabic(int arabic) {
-        addArabicToRomanStringBuilder(makeArrayOfInt(arabic));
-        String roman = romanStringBuilder.toString();
-
-        return roman;
+        return addArabicToRomanStringBuilder(makeArrayOfInt(arabic));
     }
 
     private int[] makeArrayOfInt(int arabic) {
@@ -41,13 +28,15 @@ public class InArabicNumber {
         return arrayArabic;
     }
 
-    private void addArabicToRomanStringBuilder(int[] arrayArabic) {
+    private String addArabicToRomanStringBuilder(int[] arrayArabic) {
+    		StringBuilder romanStringBuilder = new StringBuilder("");
         for (int index = arrayArabic.length - 1; 0 <= index; index--) {
-            stringBuilderAppendString(arrayArabic[index], index);
+            stringBuilderAppendString(arrayArabic[index], index, romanStringBuilder);
         }
+        return romanStringBuilder.toString();
     }
 
-    private void stringBuilderAppendString(int element, int index) {
+    private void stringBuilderAppendString(int element, int index, StringBuilder romanStringBuilder) {
         switch (index) {
         case 0:
             if (element != 0) {
@@ -65,10 +54,9 @@ public class InArabicNumber {
             }
             break;
         case 3:
-            romanStringBuilder.append(fourDigit(element));
+            		romanStringBuilder.append(fourDigit(element));
             break;
         }
-
     }
 
     private String fourDigit(int element) {
@@ -82,7 +70,6 @@ public class InArabicNumber {
         default:
             return "";
         }
-
     }
 
     private String threeDigit(int element) {
@@ -159,5 +146,4 @@ public class InArabicNumber {
             return "";
         }
     }
-
 }
